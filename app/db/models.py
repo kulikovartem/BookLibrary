@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey, String
-from session import Base
+from app.db.session import Base
 
 
 class User(Base):
@@ -36,5 +36,6 @@ class UserBook(Base):
     book_id: Mapped[int] = mapped_column(ForeignKey("books.id", ondelete="CASCADE"))
     status: Mapped[str] = mapped_column(String(50), nullable=False)
 
-    user: Mapped["User"] = relationship("User", back_populates="books")
-    book: Mapped["Book"] = relationship("Book", back_populates="users")
+    user: Mapped["User"] = relationship("User", backref="user_books")
+    book: Mapped["Book"] = relationship("Book", backref="user_books")
+
