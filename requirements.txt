@@ -1,0 +1,8 @@
+FastApi~=0.110.0
+passlib~=1.7.4
+sqlalchemy~=2.0.29
+pydantic~=2.5.2
+pydantic-settings
+python-multipart
+jose~=1.0.0
+bcrypt
